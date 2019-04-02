@@ -80,7 +80,7 @@
               <Color blue="ae" green="fe" red="fe" type="rgb"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Tha&#xf8;nh vie&#xe2;n:  - Tr&#xf2;nh Tua&#xe1;n Anh&#xa;&#x9;- &#xa;&#x9;-  Nguye&#xe3;n &#xd1;a&#xef;t&#xa;&#x9;- Nguye&#xe3;n Tha&#xf8;nh Co&#xe2;ng&#xa;&#x9;&#xa;&#x9;         &#xa;&#x9;           Te&#xe2;n pha&#xe0;n me&#xe0;m: Caro Battle&#xa;&#x9;      &#xa;&#x9;                   Na&#xea;m pha&#xf9;t ha&#xf8;nh: 2019"/>
+            <Property name="text" type="java.lang.String" value="Tha&#xf8;nh vie&#xe2;n:  - Tr&#xf2;nh Tua&#xe1;n Anh&#xa;&#x9;-  Minh Cha&#xe2;u&#xa;&#x9;-  Nguye&#xe3;n &#xd1;a&#xef;t&#xa;&#x9;- Nguye&#xe3;n Tha&#xf8;nh Co&#xe2;ng&#xa;&#x9;&#xa;&#x9;         &#xa;&#x9;           Te&#xe2;n pha&#xe0;n me&#xe0;m: Caro Battle&#xa;&#x9;      &#xa;&#x9;                   Na&#xea;m pha&#xf9;t ha&#xf8;nh: 2019"/>
           </Properties>
         </Component>
       </SubComponents>

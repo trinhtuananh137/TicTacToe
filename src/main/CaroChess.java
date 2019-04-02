@@ -69,7 +69,7 @@ public class CaroChess {
     }
 
         public boolean playChess1(int mouseX, int mouseY, Graphics g) { 
-            comMove = false;
+        
         if (fEnd == 0 && playerFlag == 1) {            
             if (mouseX % SIZE == 0 || mouseY % SIZE == 0) {
                 return false;
@@ -89,7 +89,7 @@ public class CaroChess {
                 if (checkWin(row, col) == 1) {
                     InterfaceGame.thoigian.stop();
                     g.drawImage(win, 0, 0, null);
-                    fEnd = 1;
+                    fEnd = 1;                    
                     return true;
                 }
                  //May di

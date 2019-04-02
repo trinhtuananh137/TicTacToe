@@ -48,7 +48,7 @@ public class About extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("VNI-Univer", 0, 18)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(254, 254, 174));
         jTextArea1.setRows(5);
-        jTextArea1.setText("Thaønh vieân:  - Trònh Tuaán Anh\n\t- \n\t-  Nguyeãn Ñaït\n\t- Nguyeãn Thaønh Coâng\n\t\n\t         \n\t           Teân phaàn meàm: Caro Battle\n\t      \n\t                   Naêm phaùt haønh: 2019");
+        jTextArea1.setText("Thaønh vieân:  - Trònh Tuaán Anh\n\t-  Minh Chaâu\n\t-  Nguyeãn Ñaït\n\t- Nguyeãn Thaønh Coâng\n\t\n\t         \n\t           Teân phaàn meàm: Caro Battle\n\t      \n\t                   Naêm phaùt haønh: 2019");
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 400, 240));

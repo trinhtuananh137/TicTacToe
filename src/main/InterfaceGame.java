@@ -18,9 +18,11 @@ public class InterfaceGame extends javax.swing.JFrame {
     public static Timer thoigian;
     public Integer second, minute;
 
-    public InterfaceGame(int depth) {
+    public InterfaceGame(int depth,String playerName1, String playerName2) {
         initComponents();
         setTitle("Playing");
+        lbPlayer1.setText(playerName1);
+        lbPlayer2.setText(playerName2);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
@@ -82,6 +84,10 @@ public class InterfaceGame extends javax.swing.JFrame {
         btBack = new javax.swing.JButton();
         pnBoard = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        lbTurn2 = new javax.swing.JLabel();
+        lbPlayer2 = new javax.swing.JLabel();
+        lbPlayer1 = new javax.swing.JLabel();
+        lbTurn1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -184,7 +190,7 @@ public class InterfaceGame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btExit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -199,12 +205,30 @@ public class InterfaceGame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 215, Short.MAX_VALUE)
+            .addGap(0, 354, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 543, Short.MAX_VALUE)
         );
+
+        lbTurn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/playTurn.png"))); // NOI18N
+        lbTurn2.setText("lbTurn2");
+
+        lbPlayer2.setBackground(new java.awt.Color(0, 0, 0));
+        lbPlayer2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        lbPlayer2.setForeground(new java.awt.Color(250, 250, 250));
+        lbPlayer2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbPlayer2.setText("player2");
+        lbPlayer2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lbPlayer1.setBackground(new java.awt.Color(0, 0, 0));
+        lbPlayer1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        lbPlayer1.setForeground(new java.awt.Color(250, 250, 250));
+        lbPlayer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbPlayer1.setText("player1");
+
+        lbTurn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/playTurn.png"))); // NOI18N
 
         javax.swing.GroupLayout pnBackGroundLayout = new javax.swing.GroupLayout(pnBackGround);
         pnBackGround.setLayout(pnBackGroundLayout);
@@ -212,7 +236,17 @@ public class InterfaceGame extends javax.swing.JFrame {
             pnBackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBackGroundLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnBackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnBackGroundLayout.createSequentialGroup()
+                        .addComponent(lbTurn2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbPlayer2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnBackGroundLayout.createSequentialGroup()
+                        .addComponent(lbTurn1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -220,7 +254,20 @@ public class InterfaceGame extends javax.swing.JFrame {
             pnBackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnBackGroundLayout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addGroup(pnBackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTurn1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(91, 91, 91)
+                .addGroup(pnBackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbPlayer2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTurn2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        lbPlayer2.getAccessibleContext().setAccessibleName("lbPlayer2");
+        lbPlayer1.getAccessibleContext().setAccessibleName("lbPlayer1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -240,7 +287,6 @@ public class InterfaceGame extends javax.swing.JFrame {
 
     private void pnBoardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnBoardMouseClicked
        
-
         if (!caRoChess.isComMove()) return;
         if (!caRoChess.isStart()) {
             return;
@@ -287,7 +333,11 @@ public class InterfaceGame extends javax.swing.JFrame {
     private javax.swing.JButton btUndo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbPlayer1;
+    private javax.swing.JLabel lbPlayer2;
     private javax.swing.JLabel lbTime;
+    private javax.swing.JLabel lbTurn1;
+    private javax.swing.JLabel lbTurn2;
     private javax.swing.JPanel pnBackGround;
     private javax.swing.JPanel pnBoard;
     // End of variables declaration//GEN-END:variables

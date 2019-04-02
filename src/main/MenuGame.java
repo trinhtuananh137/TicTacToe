@@ -106,8 +106,8 @@ public class MenuGame extends javax.swing.JFrame {
 
     private void btNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewGameActionPerformed
         setVisible(false);
-        interfa = new InterfaceGame(maxDepth);        
-        interfa.setVisible(true);
+        CaroNickname f = new CaroNickname();
+        f.setVisible(true);
     }//GEN-LAST:event_btNewGameActionPerformed
 
     private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
