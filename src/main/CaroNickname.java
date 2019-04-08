@@ -6,7 +6,10 @@
 package main;
 
 import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
+import javax.swing.JRootPane;
 import javax.swing.JTextField;
 
 /**
@@ -17,12 +20,25 @@ public class CaroNickname extends javax.swing.JFrame {
 
     /**
      * Creates new form CaroNickname
-     */
-    
+     */   
     public CaroNickname() {
         initComponents();            
         setBackground(new java.awt.Color(64, 31, 6));
         setLocationRelativeTo(null);
+        tfPlayer1.addKeyListener(new KeyAdapter() {
+         public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+               btOK.doClick();
+            }
+         }
+      });
+        tfPlayer2.addKeyListener(new KeyAdapter() {
+         public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+               btOK.doClick();
+            }
+         }
+      });    
         switch(MenuGame.mode)
         {
             case 1: lbPlayer2.setVisible(false); tfPlayer2.setVisible(false); lbPlayer1.setText("Player"); break;
@@ -43,8 +59,8 @@ public class CaroNickname extends javax.swing.JFrame {
         lbPlayer1 = new javax.swing.JLabel();
         lbPlayer2 = new javax.swing.JLabel();
         tfPlayer2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btOK = new javax.swing.JButton();
+        btBack = new javax.swing.JButton();
         lbNotify = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,17 +86,17 @@ public class CaroNickname extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btOK.setText("OK");
+        btOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btOKActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btBack.setText("Back");
+        btBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btBackActionPerformed(evt);
             }
         });
 
@@ -95,9 +111,9 @@ public class CaroNickname extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addComponent(jButton2)
+                        .addComponent(btBack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btOK)
                         .addGap(36, 36, 36))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
@@ -127,8 +143,8 @@ public class CaroNickname extends javax.swing.JFrame {
                 .addComponent(lbNotify)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(btBack)
+                    .addComponent(btOK))
                 .addContainerGap())
         );
 
@@ -141,9 +157,10 @@ public class CaroNickname extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPlayer2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOKActionPerformed
         if (MenuGame.mode == 1 && tfPlayer1.getText().isEmpty() == true){
-            lbNotify.setText("Chưa nhập đủ !!!");}
+            //lbNotify.setText("Chưa nhập đủ !!!");            
+        }
         else if (MenuGame.mode == 2 && (tfPlayer1.getText().isEmpty() == true || tfPlayer2.getText().isEmpty() == true)){
             lbNotify.setText("Chưa nhập đủ !!!");
             
@@ -155,13 +172,13 @@ public class CaroNickname extends javax.swing.JFrame {
         if (MenuGame.mode == 2 ) interfa = new InterfaceGame(MenuGame.maxDepth,tfPlayer1.getText(),tfPlayer2.getText());
         interfa.setVisible(true);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btOKActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBackActionPerformed
        setVisible(false);
        MenuGame f = new MenuGame(1,1);
        f.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btBackActionPerformed
 
     private void tfPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPlayer1ActionPerformed
         // TODO add your handling code here:
@@ -204,8 +221,8 @@ public class CaroNickname extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btBack;
+    private javax.swing.JButton btOK;
     private javax.swing.JLabel lbNotify;
     private javax.swing.JLabel lbPlayer1;
     private javax.swing.JLabel lbPlayer2;

@@ -27,9 +27,7 @@ public class CaroChess {
     private int enemyFlag;
     
     
-    private int fEnd;
-    
-    public static boolean comMove;
+    private int fEnd;    
     public ChessBoard chessBoard;
     public EvalBoard eval;
     public int[][] arrBoard;
@@ -39,7 +37,7 @@ public class CaroChess {
     private static int maxDepth; //Độ sâu lớn nhất
     public static int maxMove = 3; //
     public int depth = 0; //Độ sâu
-    public static final int SIZE = 25; // độ dài cạnh ô vuông caro
+    public static final int SIZE = 25; // độ dài cạnh 1 ô vuông caro
     public static final int INT_MAX = Integer.MAX_VALUE;
 
     public int[] DScore = new int[]{0, 1, 9, 81, 729};
@@ -50,7 +48,7 @@ public class CaroChess {
     public int[] pointArr = {5, 5, 10, 10, 500, 500, 500, 600, 600, 600, 600, 600, 5000, 5000};
 
     public CaroChess(int depthMax) {
-        comMove = true;
+        
         chessBoard = new ChessBoard(20 , 20);
         arrBoard = new int[chessBoard.Row][chessBoard.Col];
         for (int i = 0; i < chessBoard.Row; i++) {
@@ -85,7 +83,7 @@ public class CaroChess {
             if (arrBoard[row][col] == 0) {
                 arrBoard[row][col] = 1;
                 listUndo.add(new Point(row, col));
-                chessBoard.drawChessMan(g, row * SIZE, col * SIZE, imageX);                
+                chessBoard.drawChessMan(g, row * SIZE, col * SIZE,imageO );               
                 if (checkWin(row, col) == 1) {
                     InterfaceGame.thoigian.stop();
                     g.drawImage(win, 0, 0, null);
@@ -101,7 +99,7 @@ public class CaroChess {
                 y = temp.y;
                 arrBoard[x][y] = 2;
                 listUndo.add(new Point(x, y));
-                chessBoard.drawChessMan(g, x * 25, y * 25, imageO);
+                chessBoard.drawChessMan(g, x * 25, y * 25, imageX);
                 
                 if (checkWin(x, y) == 2) {
                     InterfaceGame.thoigian.stop();
@@ -109,7 +107,7 @@ public class CaroChess {
                     fEnd = 2;
                     return true;
                 }
-               comMove = true;
+              
                 return true;
             }
         }
@@ -132,7 +130,7 @@ public class CaroChess {
             if (arrBoard[row][col] == 0) {
                 arrBoard[row][col] = 1;
                 listUndo.add(new Point(row, col));
-                chessBoard.drawChessMan(g, row * SIZE, col * SIZE, imageX);
+                chessBoard.drawChessMan(g, row * SIZE, col * SIZE, imageO);
                 playerFlag = 2;
                 if (checkWin(row, col) == 1) {
                     InterfaceGame.thoigian.stop();
@@ -160,7 +158,7 @@ public class CaroChess {
             if (arrBoard[row][col] == 0) {
                 arrBoard[row][col] = 2;
                 listUndo.add(new Point(row, col));
-                chessBoard.drawChessMan(g, row * SIZE, col * SIZE, imageO);
+                chessBoard.drawChessMan(g, row * SIZE, col * SIZE, imageX);
                 playerFlag = 1;
                 if (checkWin(row, col) == 2) {
                     InterfaceGame.thoigian.stop();
@@ -177,9 +175,9 @@ public class CaroChess {
     public void repaintChessMan(Graphics g) {
         for (Point point : listUndo) {
             if (arrBoard[point.x][point.y] == 1) {
-                chessBoard.drawChessMan(g, point.x * CaroChess.SIZE, point.y * CaroChess.SIZE , imageX);
+                chessBoard.drawChessMan(g, point.x * CaroChess.SIZE, point.y * CaroChess.SIZE , imageO);
             } else if (arrBoard[point.x][point.y] == 2) {
-                chessBoard.drawChessMan(g, point.x * CaroChess.SIZE , point.y * CaroChess.SIZE, imageO);
+                chessBoard.drawChessMan(g, point.x * CaroChess.SIZE , point.y * CaroChess.SIZE, imageX);
             }
         }
     }
@@ -192,7 +190,7 @@ public class CaroChess {
         y = rand.nextInt(3);
         arrBoard[x + 7][y + 7] = 2;
         listUndo.add(new Point(x + 7, y + 7));
-        chessBoard.drawChessMan(g, (x + 7) * SIZE, (y + 7) * SIZE, imageO);
+        chessBoard.drawChessMan(g, (x + 7) * SIZE, (y + 7) * SIZE, imageX);
         playerFlag = 1;
         fEnd = 0;
     }
@@ -675,7 +673,5 @@ public class CaroChess {
     public boolean isStart() {
         return start;
     }
-    public static boolean isComMove(){
-        return comMove;
-    }
+    
 }

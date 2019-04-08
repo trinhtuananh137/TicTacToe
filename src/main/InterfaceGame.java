@@ -50,7 +50,7 @@ public class InterfaceGame extends javax.swing.JFrame {
         minute = 0;
         thoigian = new Timer(1000, new ActionListener() {
 
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) { 
                 String temp = minute.toString();
                 String temp1 = second.toString();
                 if (temp.length() == 1) {
@@ -286,8 +286,7 @@ public class InterfaceGame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnBoardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnBoardMouseClicked
-       
-        if (!caRoChess.isComMove()) return;
+               
         if (!caRoChess.isStart()) {
             return;
         }
